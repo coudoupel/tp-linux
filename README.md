@@ -41,7 +41,7 @@ echo "Clé SSH ajoutée avec succès au fichier authorized_keys."
 echo "Clé publique :"
 cat ~/.ssh/id_rsa.pub
 
-bash```
+```
 
 ## Étapes du TP
 
