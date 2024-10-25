@@ -1,4 +1,3 @@
-```bash
 #!/bin/bash
 
 # Vérification de l'existence de la clé SSH
@@ -22,4 +21,3 @@ chmod 700 ~/.ssh
 echo "Clé SSH ajoutée avec succès au fichier authorized_keys."
 echo "Clé publique :"
 cat ~/.ssh/id_rsa.pub
-```
