@@ -132,3 +132,21 @@ EOL
 
 echo "Mises à jour automatiques de sécurité activées sans notifications."
 ```
+
+## Désactivation des services inutiles (desactivation_services_inutiles.sh)
+
+```bash
+#!/bin/bash
+
+# Lister les services actifs
+echo "Services actifs :"
+systemctl list-units --type=service --state=running
+
+# Demander à l'utilisateur quels services désactiver
+read -p "avahi-daemon cups bluetooth ModemManager rpcbind nfs-server nfs-common" services
+for service in $services; do
+    systemctl disable $service
+    systemctl stop $service
+    echo "Service $service désactivé."
+done
+```
