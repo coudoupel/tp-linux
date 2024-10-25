@@ -28,4 +28,19 @@ function setup_2fa {
     echo "Modification de /etc/ssh/sshd_config pour autoriser KbdInteractiveAuthentication et configurer AuthenticationMethods..."
     sudo sed -i 's/^#*KbdInteractiveAuthentication no/KbdInteractiveAuthentication yes/' /etc/ssh/sshd_config
 
-    # Ajouter AuthenticationMethods publickey,keyboard-interactive
+    # Ajouter AuthenticationMethods publickey,keyboard-interactive si absent
+    if ! grep -q "^AuthenticationMethods publickey,keyboard-interactive" /etc/ssh/sshd_config; then
+        echo "AuthenticationMethods publickey,keyboard-interactive" | sudo tee -a /etc/ssh/sshd_config
+    else
+        echo "AuthenticationMethods publickey,keyboard-interactive est déjà configuré."
+    fi
+
+    # Redémarrer le service SSH
+    echo "Redémarrage du service SSH pour appliquer les modifications..."
+    sudo systemctl restart ssh
+
+    echo "Authentification à deux facteurs activée pour SSH."
+}
+
+# Appeler la fonction
+setup_2fa
