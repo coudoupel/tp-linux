@@ -2,15 +2,17 @@
 
 ## Introduction
 
-L'objectif de ce TP est de **sécuriser** et **automatiser** la configuration initiale d'un système Debian. 
-
-Vous créerez un **script Bash** qui centralisera toutes les opérations de durcissement, en veillant à ce que le processus soit **automatisé** et **fiable**. 
-
-Le script principal devra **sourcer des fonctions** spécifiques depuis d'autres fichiers pour maintenir un code clair et modulaire. De plus, vous devrez porter une attention particulière aux **inputs utilisateurs** et à la gestion des fichiers.
-
-N'oubliez pas d'**anticiper les erreurs** et de vérifier systématiquement que tous les fichiers et fonctions requis sont accessibles et fonctionnels avant de procéder.
-
-Exemple : https://sbnsec.fr/linux.sh
+Nous avons mis en place des scripts d'automatisation pour permettre la sécurisation d'un système Debian.
+Nous avons fait :
+- La copie de la clé SSH (sur le serveur).
+- Durcissement de la connexion via SSH.
+- Installation et configuration d'un pare-feu.
+- Mise a jour automatique des paquets de sécurité.
+- Désactivation des services inutiles.
+- Création d'alias pour des commandes fréquentes.
+- Personnalisation du prompt Bash.
+- 2FA (via google authenticator).
+- Script qui éxecute tous les autres.
 
 ## Objectifs
 
